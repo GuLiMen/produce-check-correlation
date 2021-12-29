@@ -1,12 +1,12 @@
-package cn.qtech.bigdata.start
+package cn.qtech.bigdata.start.poorTest
 
 import cn.qtech.bigdata.comm.Constants.KUDU_MASTER
 import cn.qtech.bigdata.comm.bodScheam.schema
 import cn.qtech.bigdata.util.badTestStatistics
 import org.apache.kudu.spark.kudu.KuduContext
-import org.apache.spark.sql._
+import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
 
-object badTestCb extends badTestStatistics{
+object badTestGc extends badTestStatistics{
 
   def main(args: Array[String]): Unit = {
 
@@ -15,7 +15,6 @@ object badTestCb extends badTestStatistics{
       .config("spark.debug.maxToStringFields", "200")
       .config("spark.sql.crossJoin.enabled", "true")
       .config("spark.port.maxRetries","500")
-//      .config("spark.local.dir","D:\\sparkTemp")
       .getOrCreate()
 
     val sc = spark.sparkContext
@@ -26,7 +25,6 @@ object badTestCb extends badTestStatistics{
 
     val ads_bad_test_statistics = "ADS_BAD_TEST_STATISTICS"
 
-    //配置相关表
     kuduTable(spark,"ADS_BAD_TEST_STATISTICS","ads_bad_test_statistics")
     kuduTable(spark,"MESC_B_WORKSHOP","mesc_b_workshop")
     kuduTable(spark,"MESC_B_ERRORCODE","mesc_b_errorcode")
@@ -39,9 +37,9 @@ object badTestCb extends badTestStatistics{
 
 //    val result: DataFrame = test_statistics(spark,"produce_check_th")
 
-    val result: DataFrame = test_statistics_G2(spark)
+    val result: DataFrame = test_statistics_GC(spark)
 
-      spark.createDataFrame(result.rdd,schema)
+    spark.createDataFrame(result.rdd,schema)
       .write.mode(SaveMode.Append)
       .format("org.apache.kudu.spark.kudu")
       .option("kudu.master", KUDU_MASTER)

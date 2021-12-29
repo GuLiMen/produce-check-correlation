@@ -1,12 +1,11 @@
-package cn.qtech.bigdata.start
+package cn.qtech.bigdata.start.poorTest
 
+
+import cn.qtech.bigdata.comm.Constants.KUDU_MASTER
+import cn.qtech.bigdata.comm.bodScheam.schema
 import cn.qtech.bigdata.util.badTestStatistics
 import org.apache.kudu.spark.kudu.KuduContext
 import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
-import cn.qtech.bigdata.comm.Constants.KUDU_MASTER
-
-import cn.qtech.bigdata.comm.bodScheam.schema
-
 object badTestTh extends badTestStatistics{
 
   def main(args: Array[String]): Unit = {

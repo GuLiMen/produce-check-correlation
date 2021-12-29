@@ -1,5 +1,4 @@
-package cn.qtech.bigdata
-
+package cn.qtech.bigdata.start.throwing_material
 import java.time.{LocalDate, LocalDateTime}
 import java.time.format.DateTimeFormatter
 
@@ -7,7 +6,6 @@ import cn.qtech.bigdata.comm.Constants
 import cn.qtech.bigdata.comm.Constants.KUDU_MASTER
 import org.apache.spark.sql.{DataFrame, SparkSession}
 import org.slf4j.{Logger, LoggerFactory}
-
 trait ProduceCheckLink {
   val LOG: Logger = LoggerFactory.getLogger(this.getClass)
 /*

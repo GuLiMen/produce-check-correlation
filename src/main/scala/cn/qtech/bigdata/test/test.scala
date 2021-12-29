@@ -6,7 +6,7 @@ import java.time.{LocalDate, LocalDateTime}
 import java.time.format.DateTimeFormatter
 import java.util.{Calendar, Date}
 
-import cn.qtech.bigdata.CBProduceCheckLink
+import cn.qtech.bigdata.start.throwing_material.CBProduceCheckLink
 
 import scala.io.Source
 

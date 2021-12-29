@@ -1,10 +1,10 @@
-package cn.qtech.bigdata
+package cn.qtech.bigdata.start.throwing_material
 
 import java.text.SimpleDateFormat
 import java.util.Calendar
-import cn.qtech.bigdata.util.SparkReader.readTime
-import cn.qtech.bigdata.util.SparkReader.write
+
 import cn.qtech.bigdata.sink.KuduSink
+import cn.qtech.bigdata.util.SparkReader.{readTime, write}
 import org.apache.spark.sql.SparkSession
 
 object THProduceCheckLink extends ProduceCheckLink {

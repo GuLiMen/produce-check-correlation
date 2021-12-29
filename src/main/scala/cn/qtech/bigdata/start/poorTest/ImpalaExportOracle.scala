@@ -1,12 +1,11 @@
-package cn.qtech.bigdata.start
+package cn.qtech.bigdata.start.poorTest
 
 import java.sql.DriverManager
-import java.time.{LocalDate, LocalDateTime}
 import java.time.format.DateTimeFormatter
-
+import java.time.{LocalDate, LocalDateTime}
 import cn.qtech.bigdata.comm.Constants.KUDU_MASTER
 import cn.qtech.bigdata.start.TypeConversion
-import org.apache.spark.sql.{Dataset, Row, SparkSession}
+import org.apache.spark.sql.SparkSession
 
 object ImpalaExportOracle {
   def main(args: Array[String]): Unit = {
